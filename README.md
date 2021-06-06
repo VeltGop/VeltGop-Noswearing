@@ -1,1 +1,0 @@
-# VeltGop-Noswearing
