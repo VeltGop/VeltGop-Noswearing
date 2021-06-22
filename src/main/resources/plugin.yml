@@ -1,0 +1,6 @@
+name: Autonoswearing
+version: ${project.version}
+main: xyz.veltgop.autonoswearing.Autonoswearing
+api-version: 1.16
+authors: [ VeltgopStudio ]
+website: http://www.veltgop.xyz
