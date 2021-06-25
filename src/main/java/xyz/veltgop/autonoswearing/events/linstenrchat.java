@@ -2,6 +2,7 @@ package xyz.veltgop.autonoswearing.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -38,7 +39,7 @@ public class linstenrchat implements Listener {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Message")));
                     //向玩家发送配置中的消息
                     Iterator var5 = Bukkit.getServer().getOnlinePlayers().iterator();
-
+                    CommandExecutor commandExecutor = (CommandExecutor)
                     }
                 }
             Iterator var5 = Bukkit.getServer().getOnlinePlayers().iterator();

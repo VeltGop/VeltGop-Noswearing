@@ -51,8 +51,8 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-    </build>
 
+    </build>
     <repositories>
         <repository>
             <id>spigotmc-repo</id>
@@ -64,6 +64,8 @@
         </repository>
     </repositories>
 
+
+
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -71,5 +73,7 @@
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        
     </dependencies>
+
 </project>

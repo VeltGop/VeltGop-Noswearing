@@ -50,17 +50,17 @@ public boolean onCommand(CommandSender Sender, Command command, String s, String
 
                 }
         if (args[0].equalsIgnoreCase("help")) {
-        player.sendMessage("§a/sm 检查更新");
-        player.sendMessage("§a/sm reload重载配置");
+        player.sendMessage("§a/veltgop 检查更新");
+        player.sendMessage("§a/veltgop reload重载配置");
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
         player.sendMessage("重载中...");
         Plugin plugin = Autonoswearing.getPlugin(Autonoswearing.class);
-        Autonoswearing.Main.reloadConfig();
+        plugin.reloadConfig();
         }
 
-        player.sendMessage("[MengAntiSwearing]重载完毕！");
+        player.sendMessage("[VeltGop-NoSwearing]重载完毕！");
         return true;
         } else {
         System.out.println("该指令只能由玩家执行!");
