@@ -4,3 +4,10 @@ main: xyz.veltgop.autonoswearing.Autonoswearing
 api-version: 1.16
 authors: [ VeltgopStudio ]
 website: http://www.veltgop.xyz
+commands:
+  sm:
+    description: Check VeltGop-NoSwearing Version
+    permission: "veltgop.admin"
+  sm reload:
+    description: Reload Config VeltGop-Noswearing
+    permission: "veltgop.command.reload"

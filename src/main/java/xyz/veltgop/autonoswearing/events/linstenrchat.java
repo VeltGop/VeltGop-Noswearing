@@ -23,10 +23,11 @@ public class linstenrchat implements Listener {
 
         Player player = (Player) event.getPlayer();//获取触发事件的玩家
         String message = event.getMessage();//获取玩家发送的消息
-
+        String messageafter = message.replaceAll(" ", "");//过滤空格
+        String messageafter2 = messageafter.toLowerCase();//把大写转为小写
         for(int i = 0; i < this.plugin.getConfig().getStringList("NoWordList").size(); ++i){
             //获取违禁词列表
-            if (message.contains((CharSequence)this.plugin.getConfig().getStringList("NowordList").get(i))) {
+            if (messageafter2.contains((CharSequence)this.plugin.getConfig().getStringList("NowordList").get(i))) {
                 //如果聊天内容出现列表中的词执行如下
                 if (player.hasPermission("veltgop.bypass")) {
                     //检测是否有绕过权限
@@ -39,8 +40,10 @@ public class linstenrchat implements Listener {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Message")));
                     //向玩家发送配置中的消息
                     Iterator var5 = Bukkit.getServer().getOnlinePlayers().iterator();
-                    CommandExecutor commandExecutor = (CommandExecutor)
-                    }
+                    //发送指令禁言
+                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/tempmute " + player + " 10minutes 触发服务器违禁词");
+
+                }
                 }
             Iterator var5 = Bukkit.getServer().getOnlinePlayers().iterator();
                     while(var5.hasNext()) {

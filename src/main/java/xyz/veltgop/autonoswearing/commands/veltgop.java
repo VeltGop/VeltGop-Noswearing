@@ -55,9 +55,12 @@ public boolean onCommand(CommandSender Sender, Command command, String s, String
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
-        player.sendMessage("重载中...");
-        Plugin plugin = Autonoswearing.getPlugin(Autonoswearing.class);
-        plugin.reloadConfig();
+                if (player.hasPermission("veltgop.command.reload")) {
+                        player.sendMessage("重载中...");
+                        plugin.reloadConfig();
+                } else {
+                        player.sendMessage(ChatColor.RED + "你没有权限执行这个命令!");
+                }
         }
 
         player.sendMessage("[VeltGop-NoSwearing]重载完毕！");
