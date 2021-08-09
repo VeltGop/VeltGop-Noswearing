@@ -36,11 +36,15 @@ public boolean onCommand(CommandSender Sender, Command command, String s, String
                                 BufferedReader bufRead = new BufferedReader(inStrRead);
                                 //读到的内容不为空
                                 while (bufRead.readLine() != null) {
-                                        if (bufRead.readLine() == version){
-                                                player.sendMessage("您好！管理员" + player.getPlayer() + "!您的VeltgopNoSwearing版本已为最新版！");
-                                        } else {
-                                                player.sendMessage("您好！管理员" + player.getPlayer() + "!您的VeltgopNoSwearing版本不是最新版！请更新插件！");
-                                                player.sendMessage("插件下载地址: http://www.veltgop.xyz/download/veltgop/noswearing/" + bufRead.readLine() + ".jar");
+                                        String autoupdate = this.plugin.getConfig().getString("autoupdate");
+                                        boolean autoupdate2 = Boolean.valueOf(autoupdate);
+                                        if (autoupdate2 == true) {
+                                                if (bufRead.readLine() == version) {
+                                                        player.sendMessage("您好！管理员" + player.getPlayer() + "!您的VeltgopNoSwearing版本已为最新版！");
+                                                } else {
+                                                        player.sendMessage("您好！管理员" + player.getPlayer() + "!您的VeltgopNoSwearing版本不是最新版！请更新插件！");
+                                                        player.sendMessage("插件下载地址: http://www.veltgop.xyz/download/veltgop/noswearing/" + bufRead.readLine() + ".jar");
+                                                }
                                         }
                                 }
                                 bufRead.close();

@@ -40,20 +40,34 @@ public class linstenrchat implements Listener {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', this.plugin.getConfig().getString("Message")));
                     //向玩家发送配置中的消息
                     Iterator var5 = Bukkit.getServer().getOnlinePlayers().iterator();
-                    //发送指令禁言
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/tempmute " + player + " 10minutes 触发服务器违禁词");
+                    //侦测配置中的方案
+                    int ways = Integer.parseInt(this.plugin.getConfig().getString("Bansway"));
+                    int num1 = 1;
+                    int num2 = 2;
+
+                    if (ways == num1){
+                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/lp user "+ player + " permission settemp veltgop.muted true 10minutes");
+                    }
+                    if (ways == num2) {
+                        //发送指令禁言
+
+                        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "/tempmute " + player + " 10m 触发服务器违禁词");
+                    }
 
                 }
                 }
             Iterator var5 = Bukkit.getServer().getOnlinePlayers().iterator();
                     while(var5.hasNext()) {
-                        Player player1 = (Player)var5.next();
-                        if (player1.hasPermission("veltgop.notice")) {
-                            player1.sendMessage(ChatColor.RED + "玩家" + player + "发送了违禁词");
-                            //通知管理员
+                        String noticeadmin = this.plugin.getConfig().getString("noticeadmin");
+                        boolean noticeadmin2 = Boolean.valueOf(noticeadmin);
+                        if (noticeadmin2 == true) {
+                            Player player1 = (Player) var5.next();
+                            if (player1.hasPermission("veltgop.notice")) {
+                                player1.sendMessage(ChatColor.RED + "玩家" + player + "发送了违禁词");
+                                //通知管理员
+                            }
                         }
                     }
-
         }
 
     }
